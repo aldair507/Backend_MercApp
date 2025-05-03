@@ -23,11 +23,11 @@ const UsuarioSchema: Schema = new Schema({
     edad: { type: Number, required: true },
     identificacion: { type: Number, required: true, unique: true },
     correo: { type: String, required: true, unique: true },
-    password: { type: String, required: true, select: false }, // No se devuelve por defecto
+    password: { type: String, required: true, select: false }, 
     fechaCreacionPersona: { type: Date, default: Date.now }
 });
 
-// Hash de la contraseña antes de guardar
+
 UsuarioSchema.pre<IUsuarioDocument>('save', async function(next) {
     if (this.isModified('password')) {
         this.password = await hashPassword(this.password);

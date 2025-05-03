@@ -30,4 +30,41 @@ export class Persona {
         this._correo = correo;
         this._fechaCreacionPersona = fechaCreacionPersona;
     }
+
+    // Getters para acceder a las propiedades privadas
+    get idPersona(): string {
+        return this._idPersona;
+    }
+
+    get rol(): string {
+        return this._rol;
+    }
+
+    get estadoPersona(): boolean {
+        return this._estadoPersona;
+    }
+
+    get nombrePersona(): string {
+        return this._nombrePersona;
+    }
+
+    get apellido(): string {
+        return this._apellido;
+    }
+
+    get edad(): number {
+        return this._edad;
+    }
+
+    get identificacion(): number {
+        return this._identificacion;
+    }
+
+    get correo(): string {
+        return this._correo;
+    }
+
+    get fechaCreacionPersona(): Date {
+        return this._fechaCreacionPersona;
+    }
 }

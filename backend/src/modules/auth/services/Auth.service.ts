@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { UsuarioModel } from '../../persona/schemas/persona.schema';
-import { CounterModel } from '../../persona/schemas/counter.schema'; // Asegúrate de tener un modelo para el contador
+import { CounterModel } from '../../persona/schemas/counter.schema'; 
 
-const SECRET_KEY = process.env.JWT_SECRET || 'mi_clave_secreta'; // Cambia esto por una variable de entorno segura en producción
+const SECRET_KEY = process.env.JWT_SECRET || 'TOKEN_SECRET'; 
 
 export const hashPassword = async (password: string): Promise<string> => {
     const saltRounds = 10;

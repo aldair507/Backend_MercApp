@@ -1,6 +1,5 @@
 import { Administrador } from '../models/Administrador.models';
 import { IUsuario } from '../../../core/interfaces/IUsuario';
-
 export class AdministradorService {
     private administrador: Administrador;
 
@@ -11,9 +10,12 @@ export class AdministradorService {
     crearUsuario(nuevoUsuario: IUsuario): void {
         this.administrador.crearUsuario(nuevoUsuario);
     }
-
-    editarUsuario(usuario: IUsuario, nuevosDatos: Partial<IUsuario>): void {
-        this.administrador.editarUsuario(usuario, nuevosDatos);
+    
+    editarUsuario(id: string, nuevosDatos: Partial<IUsuario>): void {
+        const usuario = this.administrador.obtenerUsuarioPorId(id);
+        if (usuario) {
+            this.administrador.editarUsuario(usuario, nuevosDatos);
+        }
     }
 
     listarUsuarios(): Array<IUsuario> {

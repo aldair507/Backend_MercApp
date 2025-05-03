@@ -37,10 +37,12 @@ export const registrarUsuario = async (req: Request, res: Response): Promise<voi
                 idPersona: usuario.idPersona,
                 rol: usuario.rol,
                 nombrePersona: usuario.nombrePersona,
-                correo: usuario.correo 
+                correo: usuario.correo ,
+                password:password.password
             },
             token
         });
+        console.log(usuario.password)
     } catch (error) {
         res.status(400).json({ message: 'Error al registrar usuario', error: error instanceof Error ? error.message : error });
     }
