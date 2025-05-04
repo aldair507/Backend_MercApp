@@ -2,7 +2,6 @@ services:
   - type: web
     name: backend-mercapp
     env: node
-    rootDir: backend  # <-- Esto le dice a Render que empiece desde /backend
     buildCommand: npm install && npm run build
     startCommand: npm run start
     envVars:
