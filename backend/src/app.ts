@@ -3,8 +3,8 @@ import { config } from "./config/app";
 import { connectDB } from "./config/db";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { router as adminRouster } from "./modules/administrador/routes/persona.routes";
-import { router as authRouter } from './modules/auth/routes/Auth.routes';
+import { router as adminRouster } from "./modules/administrador/routes/Administrador.routes";
+import { router as authRouter } from "./modules/auth/routes/Auth.routes";
 
 // Importar las rutas de usuarios
 
@@ -18,9 +18,8 @@ app.use(cors());
 
 app.use(cookieParser());
 
-// app.use("/api", UserRoutes);
-app.use("/api", adminRouster); // Rutas de usuarios
-app.use("/api", authRouter); // Rutas de autenticación
+app.use("/api/admin", adminRouster); // Rutas de usuarios
+app.use("/api/auth", authRouter); // Rutas de autenticación
 
 connectDB();
 

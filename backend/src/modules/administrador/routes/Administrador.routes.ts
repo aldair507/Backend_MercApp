@@ -5,8 +5,8 @@ import { authenticateToken } from '../../../middlewares/auth.middleware';
 const router = express.Router();
 
 
-router.post('/admin', registrarAdmin);
-router.post('/usuarios', authenticateToken, crearUsuario);
-router.put('/usuarios/:id', authenticateToken, editarUsuario);
-router.get('/usuarios', authenticateToken, listarUsuarios);
+router.post('/register', registrarAdmin);
+router.post('/register-users', authenticateToken, crearUsuario);
+router.put('/get-user/:id', authenticateToken, editarUsuario);
+router.get('/users', listarUsuarios);
 export { router };  

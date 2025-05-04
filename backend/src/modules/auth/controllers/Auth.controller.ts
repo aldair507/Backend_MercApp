@@ -4,6 +4,8 @@ import { comparePassword, generateToken } from '../../auth/services/Auth.service
 import { crearUsuarioInterno } from '../services/Auth.service';
 import { blacklistedTokens } from '../../persona/controllers/Administrador.controller';
 
+
+
 export const registrarUsuario = async (req: Request, res: Response): Promise<void> => {
     const { rol, estadoPersona, nombrePersona, apellido, edad, identificacion, correo, password } = req.body;
     try {
@@ -11,6 +13,7 @@ export const registrarUsuario = async (req: Request, res: Response): Promise<voi
             res.status(403).json({ message: 'No puedes registrarte como administrador desde esta ruta' });
             return;
         }
+        
 
         const { usuario, token } = await crearUsuarioInterno({
             rol,

@@ -2,12 +2,22 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "dist/app.js",
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "env": {
+    "MY_ENV_VAR": "value"
+  },
   "scripts": {
     "start": "node dist/app.js",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "build": "tsc",
     "test": "jest"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,6 +34,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.14.0",
     "typescript": "^5.8.3",
+    "uuid": "^11.1.0",
     "zod": "^3.24.3"
   },
   "devDependencies": {

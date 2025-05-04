@@ -11,7 +11,7 @@ const envSchema = z.object({
 
 // Validar y exportar las variables
 export const config = envSchema.parse({
-  PORT: parseInt(process.env.PORT),
+  PORT: parseInt(process.env.PORT || "4000"),
   DB_URI: process.env.DB_URI ,
   NODE_ENV: process.env.NODE_ENV,
   
