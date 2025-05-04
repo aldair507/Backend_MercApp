@@ -1,9 +1,9 @@
 services:
   - type: web
     name: backend-mercapp
-    runtime: node
+    env: node
     buildCommand: npm install && npm run build
-    startCommand: npm start
+    startCommand: npm run start
     envVars:
       - key: NODE_ENV
         value: production
