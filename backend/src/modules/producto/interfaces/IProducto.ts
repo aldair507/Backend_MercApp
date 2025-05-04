@@ -1,10 +1,15 @@
+
+
 export interface IProducto {
-    idProducto: string;
+  idProducto: string;
   nombre: string;
+  cantidad: number;
   categoria: string;
   precio: number;
   estado: boolean;
   descuento: number;
   fechaCreacionProducto: Date;
-  actualizarStock(): void;
+
+  mostrarInformacion(): string;
+  actualizarStock(cantidad: number): Promise<void>;
 }

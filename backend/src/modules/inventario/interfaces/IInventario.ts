@@ -1,9 +1,7 @@
-import { IProducto } from '../../producto/interfaces/IProducto';
-
-
+import { IProducto } from "../../producto/interfaces/IProducto";
 
 export interface IInventario {
-    listarProductos(): Promise<Array<IProducto>>;
-    buscarProductos(criterio: string): Promise<Array<IProducto>>;
-    actualizarStock(idProducto: string, cantidad: number): Promise<void>;
+  listarProductos(): Promise<Array<IProducto>>;
+  buscarProductos(criterio: string): Promise<Array<IProducto>>;
+  guardarProductos(producto: IProducto): Promise<IProducto>;
 }
