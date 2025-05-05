@@ -7,6 +7,7 @@ import { router as adminRouster } from "./modules/administrador/routes/Administr
 import { router as authRouter } from "./modules/auth/routes/Auth.routes";
 import { router as productoRouter } from "./modules/producto/routes/Producto.routes"; // Importar las rutas de productos
 import { router as inventarioRouter } from "./modules/inventario/routes/Inventario.routes"; // Importar las rutas de inventario
+import {router as ventaRouter} from "./modules/venta/routes/VentaRoutes"; // Importar las rutas de venta
 
 // Importar las rutas de usuarios
 
@@ -22,8 +23,9 @@ app.use(cookieParser());
 
 app.use("/api/admin", adminRouster); // Rutas de usuarios
 app.use("/api/auth", authRouter); // Rutas de autenticación
-app.use("/api/products", productoRouter); // Rutas de productos
+app.use("/api/productS", productoRouter); // Rutas de productos
 app.use("/api/inventario", inventarioRouter); // Rutas de inventario
+app.use("/api/venta", ventaRouter); // Rutas de venta
 
 connectDB();
 

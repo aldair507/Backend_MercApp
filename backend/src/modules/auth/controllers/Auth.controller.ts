@@ -40,8 +40,7 @@ export const registrarUsuario = async (req: Request, res: Response): Promise<voi
                 idPersona: usuario.idPersona,
                 rol: usuario.rol,
                 nombrePersona: usuario.nombrePersona,
-                correo: usuario.correo ,
-                password:password.password
+                correo: usuario.correo 
             },
             token
         });

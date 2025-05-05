@@ -1,8 +1,9 @@
-import { ProductoModel,IProductoDocument } from "../schemas/Producto.schema";
-
+import { ProductoModel, IProductoDocument } from "../schemas/Producto.schema";
 
 export class ProductoService {
-  async crearProducto(data: Partial<IProductoDocument>): Promise<IProductoDocument> {
+  async crearProducto(
+    data: Partial<IProductoDocument>
+  ): Promise<IProductoDocument> {
     const producto = new ProductoModel(data);
     return await producto.save();
   }
@@ -15,7 +16,10 @@ export class ProductoService {
     return await ProductoModel.findOne({ idProducto: id });
   }
 
-  async actualizarStock(id: string, cantidad: number): Promise<IProductoDocument | null> {
+  async actualizarStock(
+    id: string,
+    cantidad: number
+  ): Promise<IProductoDocument | null> {
     const producto = await ProductoModel.findOne({ idProducto: id });
     if (!producto) return null;
     producto.cantidad += cantidad;
@@ -26,4 +30,19 @@ export class ProductoService {
     const resultado = await ProductoModel.deleteOne({ idProducto: id });
     return resultado.deletedCount === 1;
   }
+
+  
+  async actualizarProducto(
+    id: string,
+    datosActualizados: Partial<IProductoDocument>
+  ): Promise<IProductoDocument | null> {
+    const productoActualizado = await ProductoModel.findOneAndUpdate(
+      { idProducto: id },
+      { $set: datosActualizados },
+      { new: true } 
+    );
+  
+    return productoActualizado;
+  }
+  
 }

@@ -1,5 +1,5 @@
-
 import { IProducto } from "../../producto/interfaces/IProducto";
-export interface ICalculoTotal {
+
+export interface ICalculoInventario {
     calcular(productos: IProducto[]): number;
-  }
+}

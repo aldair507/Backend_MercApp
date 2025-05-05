@@ -1,13 +1,19 @@
 import { Router } from "express";
-
-const router = Router();
-
 import {
   crearProducto,
   obtenerProductos,
-} from "../controllers/productos.controlleres";
+  actualizarStockProducto,
+  eliminarProducto,
+  buscarPorId,
+  actualizarProducto
+  } from "../controllers/productos.controlleres";
+
+const router = Router();
 
 router.post("/register-product", crearProducto);
 router.get("/products", obtenerProductos);
-
-export { router };
+router.put("/update-stock/:id", actualizarStockProducto);
+router.delete("/delete-product/:id", eliminarProducto);
+router.get("/product/:id", buscarPorId);
+router.put("/update-product/:id", actualizarProducto);
+export { router };  

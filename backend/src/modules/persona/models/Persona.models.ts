@@ -1,4 +1,4 @@
-export class Persona {
+export  abstract class  Persona {
     private _idPersona: string;
     private _rol: string;
     private _estadoPersona: boolean;
@@ -67,4 +67,5 @@ export class Persona {
     get fechaCreacionPersona(): Date {
         return this._fechaCreacionPersona;
     }
+    
 }

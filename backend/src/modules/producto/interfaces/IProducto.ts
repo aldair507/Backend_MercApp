@@ -9,6 +9,7 @@ export interface IProducto {
   estado: boolean;
   descuento: number;
   fechaCreacionProducto: Date;
+  stock: number;
 
   mostrarInformacion(): string;
   actualizarStock(cantidad: number): Promise<void>;

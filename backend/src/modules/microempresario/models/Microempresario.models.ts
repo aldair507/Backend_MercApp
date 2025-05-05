@@ -1,30 +1,37 @@
-class Microempresario extends Usuario {
-    nit: string;
-    nombreNegocio: string;
-  
-    constructor(
-      nombre: string,
-      apellido: string,
-      email: string,
-      idUsuario: string,
-      rol: string,
-      nit: string,
-      nombreNegocio: string
-    ) {
-      super(nombre, apellido, email, idUsuario, rol);
-      this.nit = nit;
-      this.nombreNegocio = nombreNegocio;
-    }
-    
-  // Método para agregar un producto al inventario
-  agregarProducto(producto: IProducto): void {
-    // Lógica para agregar producto al inventario
-    console.log(`Producto agregado: ${producto.nombre}`);
-  }
+import { IObserver } from '../interfaces/IObserver';
 
-  // Método para editar un producto en el inventario
-  editarProducto(productoId: string, nuevoProducto: IProducto): void {
-    // Lógica para editar producto en inventario
-    console.log(`Producto con ID ${productoId} actualizado`);
-  }
+export class Microempresario implements IObserver {
+    private id: string;
+    private nombre: string;
+    private email: string;
+    private telefono: string;
+
+    constructor(id: string, nombre: string, email: string, telefono: string) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.telefono = telefono;
+    }
+
+    getId(): string {
+        return this.id;
+    }
+
+    getNombre(): string {
+        return this.nombre;
+    }
+
+    getEmail(): string {
+        return this.email;
+    }
+
+    getTelefono(): string {
+        return this.telefono;
+    }
+
+    actualizar(mensaje: string): void {
+        console.log(`Notificación para ${this.nombre} (${this.email}): ${mensaje}`);
+        // Aquí se implementaría el envío real de notificaciones
+        // Por ejemplo, enviar un email o SMS
+    }
 }
